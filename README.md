@@ -41,5 +41,5 @@ TODO - architecture diagram
 2. [Create IBM Cloud Services instances](#2-create-ibm-cloud-services)
 3. [Configuration of services](#3-configuration-of-services)
 4. [Deploy Insurance Portal Application](#4-deploy-insurance-portal-application)
-5. [Create-Chatbot](#5-create-chatbot)
+5. [Create Chatbot](#5-create-chatbot)
 6. [Access the Application](#6-access-the-application)
