@@ -1,3 +1,5 @@
+# Work in progress
+
 # Create a read-only view of data for AI applications with sensitive information masked 
 
 In any business there is lot of sensitive information collected like date of birth, credit card number, mobile number etc. This data is stored in databases. A data governance framework must be in place to enforce the privacy and allowed use of such information.
