@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Legacy Insurance Portal</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+	crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="jumbotron text-center bg-info">
+		<br/><h1>Example Insurance Portal</h1><br/>
+	</div>
+	
+	<form action="/insportal/app/auth/addtocartsvc" METHOD="POST">
+		<div class="wrapper">
+			<div class="container w-50">
+				<br />
+				<h4 class="text-info">{{message}}</h4>
+				<input type="hidden" id="custId" name="custId" value="{{custId}}">
+				<input type="hidden" id="fname" name="fname" value="{{fname}}">
+				<div class="container w-50">
+					<div class="mb-3 mt-3">
+						<label for="instype" class="form-label">Select Type: <select
+							name="instype" class="form-select" id="instype">
+								<option value="life">Life Insurance</option>
+								<option value="vehicle">Vehicle Insurance</option>
+								<option value="home">Home Insurance</option>
+						</select>
+					</div>
+
+					<div class="mb-3">
+						<label for="cover" class="form-label">Specify Insurance Cover($):
+						</label> <input type="text" id="cover" class="form-control"
+							placeholder="Enter cover amount" name="cover">
+					</div>
+					<div class="mb-3">
+						<label for="prefre" class="form-label">Select Premium Frequency:
+							<select name="prefre" class="form-select" id="prefre">
+								<option value="monthly">Monthly</option>
+								<option value="quarterly">Quarterly</option>
+								<option value="annually">Annually</option>
+						</select>
+					</div>
+					<div class="mb-3">
+						<label for="preamt" class="form-label">Premium Amount($):
+						</label> <input type="text" id="preamt" class="form-control"
+							placeholder="0" name="preamt">
+					</div>
+				</div>
+			</div>
+		</div>
+		<br />
+		<div class="container text-center">
+			<button type="submit" class="btn btn-primary">Purchase Policy</button>
+		</div>
+	</form>
+	<br />
+<   
+	<script>
+		  $("input").focusout(function(){
+			  computepreamt();
+			});
+		    $("select").focusout(function(){
+		  	  computepreamt();
+		  	});
+		    
+		    function computepreamt() {
+		    	var instype = $( "#instype" ).val();
+		    	var cover = $("#cover").val();
+		    	var prefre = $("#prefre").val();
+		    	
+		    	if (cover) {
+		    		coverAmt = parseInt(cover) * 0.1;
+		    		var preamt = 0;
+		    		if (prefre == "monthly") preamt = coverAmt / 12;
+		    		else if (prefre == "quarterly") preamt = coverAmt / 4;
+		    		else preamt = coverAmt;
+		    		$("#preamt").val(preamt.toFixed(2));
+		    	}
+		    	
+		    }
+	</script>
+
+</body>
+</html>

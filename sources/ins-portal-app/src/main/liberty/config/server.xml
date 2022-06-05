@@ -1,0 +1,49 @@
+<server description="Sample Liberty server">
+
+	<featureManager>
+		<feature>microProfile-4.1</feature>
+		<feature>webProfile-8.0</feature>
+		<feature>appSecurity-3.0</feature>
+		<feature>openidConnectClient-1.0</feature>
+		<feature>transportSecurity-1.0</feature>
+	</featureManager>
+
+	<!-- Allow port override via PORT env var -->
+	<variable name="PORT" defaultValue="9080" />
+	<variable name="default.https.port" defaultValue="9443" />
+	<variable name="project.name"
+		defaultValue="ins-portal-app" />
+
+	<httpEndpoint id="defaultHttpEndpoint" httpPort="${PORT}"
+		httpsPort="${default.https.port}" host="*" />
+
+
+	<openidConnectClient id="home"
+		signatureAlgorithm="RS256"
+		httpsRequired="false"    
+		redirectToRPHostAndPort="http://ins-portal-app-governance.{{ingress-sub-domain}}/insportal/app"
+		clientId="{{clientId}}"
+		clientSecret="{{clientSecret}}"
+		authorizationEndpointUrl="https://{{tenantId}}.verify.ibm.com/v1.0/endpoint/default/authorize"
+		tokenEndpointUrl="https://{{tenantId}}.verify.ibm.com/v1.0/endpoint/default/token"></openidConnectClient>
+
+	<logging consoleLogLevel="INFO" />
+	<application-bnd>
+		<security-role name="developers">
+			<group name="developer" />
+		</security-role>
+		<security-role name="AllAuthenticated">
+			<special-subject type="ALL_AUTHENTICATED_USERS" />
+		</security-role>
+	</application-bnd>
+
+	<ssl id="defaultSSLConfig" trustDefaultCerts="true" />
+	<!-- Automatically expand WAR files and EAR files -->
+	<applicationManager autoExpand="true" />
+
+	<applicationMonitor dropinsEnabled="false" />
+
+	<webApplication location="${project.name}.war"
+		contextRoot="/" />
+
+</server>
