@@ -106,3 +106,10 @@ Last Operation:
                   Message   Started create instance operation 
 ```
 
+**Create and make a note of service credentials**
+- Login to IBM Cloud 
+- Click the newly created db2 entry in [IBM Cloud Resource list](https://cloud.ibm.com/resources)
+- Click `Service credentials` on the left hand side navigation menu. If there are no credentials, then click on `New credential` button and create new credentials. 
+
+![](./images/db2-credentials.png)
+
