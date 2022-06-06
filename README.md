@@ -24,9 +24,20 @@ In this code pattern, you will learn how to:
 
 Security Verify has been used to implement authentication for the insurance application.
 
-TODO - architecture diagram
+![architecture](images/architecture.png)
 
 ## Flow
+
+1. Create tables in Db2. The Db2 connection and the tables(as `Data Asset`) are added to the `Watson Knowledge Catalog(WKC)`. The data policies are configured for the data assets in `WKC`.
+2. Db2 is added as a data source in Watson Query. The needed tables are virtualized and a `View` is created by joining the virtualized tables. 
+3. The Watson Query virtualized tables and view are published to `WKC`. The data policies are configured for the data assets in `WKC`.
+4. User registers on the `Insurance Portal`. This creates an user profile on `Security Verify`. User logs into the `Insurance Portal` with the newly created credentials. 
+5. The credentials are validated by `Security Verify` and request is re-directed to the application.
+6. User purchases an `Insurance Policy`. The policy information is stored in the `Db2` database.
+7. User accesses the chatbot on the `Insurance Portal` to query policy details.
+8. The request is sent to `Watson Assistant`.
+9. `Watson Assistant` invokes an API on the `Query App` to get policy details.
+10. The `Query App` accesses the `Watson Query` with collaborator credentials. `Watson Query` returns the policy details data with data policies applied. The returned results are displayed on the chatbot to the user.
 
 ## Prerequisites
 - [IBM Cloud account](https://cloud.ibm.com/)
