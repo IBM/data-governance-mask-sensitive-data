@@ -41,6 +41,7 @@ Security Verify has been used to implement authentication for the insurance appl
 
 ## Prerequisites
 - [IBM Cloud account](https://cloud.ibm.com/)
+- [IBM Cloud CLI](https://cloud.ibm.com/docs/cli?topic=cli-install-ibmcloud-cli)
 - [Red Hat OpenShift instance](https://cloud.ibm.com/kubernetes/catalog/create?platformType=openshift)
 - [Git client](https://git-scm.com/downloads)
 - [The OpenShift CLI (oc)](https://cloud.ibm.com/docs/openshift?topic=openshift-openshift-cli)
@@ -54,3 +55,4 @@ Security Verify has been used to implement authentication for the insurance appl
 4. [Deploy Insurance Portal Application](#4-deploy-insurance-portal-application)
 5. [Create Chatbot](#5-create-chatbot)
 6. [Access the Application](#6-access-the-application)
+
