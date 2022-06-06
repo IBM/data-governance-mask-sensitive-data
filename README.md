@@ -85,7 +85,7 @@ ibmcloud resource service-instance-create db2-ins dashdb-for-transactions lite u
 ```
 
 The below message will be displayed:
-`
+```
 Creating service instance db2-ins in resource group Default of account Balaji kadambi's Account as balaji.kadambi@gmail.com...
 OK
 Service instance db2-ins was created.
@@ -104,5 +104,5 @@ Updated at:       2022-06-06T11:04:35Z
 Last Operation:                   
                   Status    create in progress      
                   Message   Started create instance operation 
-`
+```
 
