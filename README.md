@@ -56,3 +56,53 @@ Security Verify has been used to implement authentication for the insurance appl
 5. [Create Chatbot](#5-create-chatbot)
 6. [Access the Application](#6-access-the-application)
 
+
+### 1. Clone the repository
+
+From a command terminal, run the below command to clone the repo:
+```
+git clone https://github.com/IBM/data-governance-mask-sensitive-data
+```
+
+### 2. Create IBM Cloud Services instances
+
+#### 2.1 Sign up for IBM Security Verify
+
+Click [Security Verify](https://www.ibm.com/account/reg/signup?formid=urx-30041) to sign up for Security Verify. After you sign up for an account, the account URL (https://[tenant name].verify.ibm.com/ui/admin) and password is sent in an email.
+
+#### 2.2 Create IBM DB2 Service instance
+
+Open a `Terminal`. Run the below commands to login to IBM Cloud using CLI.
+```
+ibmcloud login [--sso]
+```
+
+Configure the login region to be `us-south` and set a resource group (say `Default`).
+
+Run the below command to create an instance of Db2:
+```
+ibmcloud resource service-instance-create db2-ins dashdb-for-transactions lite us-south
+```
+
+The below message will be displayed:
+`
+Creating service instance db2-ins in resource group Default of account Balaji kadambi's Account as balaji.kadambi@gmail.com...
+OK
+Service instance db2-ins was created.
+                     
+Name:             db2-ins   
+ID:               crn:v1:bluemix:public:dashdb-for-transactions:us-south:a/7axxxc68d6f81d71:b52xxx3-4xxxd-4xxd-9xxa-bxxxxxxa::   
+GUID:             b5xxxx3-4xxd-4xxd-9xxa-bxxxxxxxxxxa   
+Location:         us-south   
+State:            provisioning   
+Type:             service_instance   
+Sub Type:            
+Allow Cleanup:    false   
+Locked:           false   
+Created at:       2022-06-06T11:04:30Z   
+Updated at:       2022-06-06T11:04:35Z   
+Last Operation:                   
+                  Status    create in progress      
+                  Message   Started create instance operation 
+`
+
