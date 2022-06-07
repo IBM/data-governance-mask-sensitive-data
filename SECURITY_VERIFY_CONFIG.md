@@ -37,5 +37,5 @@ Then, note down the following endpoints: **authorization_endpoint, token_endpoin
 
 ![Note API Client credentials](./images/note-api-client-credentials.png)
 
-Back to main [README](https://github.com/IBM/data-governance-mask-sensitive-data/tree/branch-bk#3-configure-security-verify) page.
+Back to main [README.md](README.md) page.
 
