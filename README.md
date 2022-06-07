@@ -24,12 +24,24 @@ In this code pattern, you will learn how to:
 
 Security Verify has been used to implement authentication for the insurance application.
 
-TODO - architecture diagram
+![architecture](images/architecture.png)
 
 ## Flow
 
+1. Create tables in Db2. The Db2 connection and the tables(as `Data Asset`) are added to the `Watson Knowledge Catalog(WKC)`. The data policies are configured for the data assets in `WKC`.
+2. Db2 is added as a data source in Watson Query. The needed tables are virtualized and a `View` is created by joining the virtualized tables. 
+3. The Watson Query virtualized tables and view are published to `WKC`. The data policies are configured for the data assets in `WKC`.
+4. User registers on the `Insurance Portal`. This creates an user profile on `Security Verify`. User logs into the `Insurance Portal` with the newly created credentials. 
+5. The credentials are validated by `Security Verify` and request is re-directed to the application.
+6. User purchases an `Insurance Policy`. The policy information is stored in the `Db2` database.
+7. User accesses the chatbot on the `Insurance Portal` to query policy details.
+8. The request is sent to `Watson Assistant`.
+9. `Watson Assistant` invokes an API on the `Query App` to get policy details.
+10. The `Query App` accesses the `Watson Query` with collaborator credentials. `Watson Query` returns the policy details data with data policies applied. The returned results are displayed on the chatbot to the user.
+
 ## Prerequisites
 - [IBM Cloud account](https://cloud.ibm.com/)
+- [IBM Cloud CLI](https://cloud.ibm.com/docs/cli?topic=cli-install-ibmcloud-cli)
 - [Red Hat OpenShift instance](https://cloud.ibm.com/kubernetes/catalog/create?platformType=openshift)
 - [Git client](https://git-scm.com/downloads)
 - [The OpenShift CLI (oc)](https://cloud.ibm.com/docs/openshift?topic=openshift-openshift-cli)
@@ -39,7 +51,61 @@ TODO - architecture diagram
 ## Steps
 1. [Clone the repository](#1-clone-the-repository)
 2. [Create IBM Cloud Services instances](#2-create-ibm-cloud-services)
-3. [Configuration of services](#3-configuration-of-services)
-4. [Deploy Insurance Portal Application](#4-deploy-insurance-portal-application)
+3. [Deploy Insurance Portal Application](#3-deploy-insurance-portal-application)
+4. [Configuration of services](#4-configuration-of-services)
 5. [Create Chatbot](#5-create-chatbot)
-6. [Access the Application](#6-access-the-application)
+7. [Access the Application](#6-access-the-application)
+
+
+### 1. Clone the repository
+
+From a command terminal, run the below command to clone the repo:
+```
+git clone https://github.com/IBM/data-governance-mask-sensitive-data
+```
+
+### 2. Create IBM Cloud Services instances
+
+
+#### 2.1 Create DB2, Watson Knowledge Catalog and Watson Query service instances on Cloud Pak for Data
+In the code pattern, we will be using Cloud Pak for Data.
+
+[Cloud Pak For Data](https://cloud.ibm.com/cloudpaks/data/overview) is available as a fully-managed service(CPDaaS) or as a self-managed software.
+
+If you are planning to use the fully managed service([CPDaaS](https://cloud.ibm.com/cloudpaks/data/overview)), follow the instructions [here]() to create instances of DB2, Watson Knowledge Catalog and Watson Query.
+
+If you are planning to use [self managed service](https://cloud.ibm.com/catalog/content/ibm-cp-datacore-6825cc5d-dbf8-4ba2-ad98-690e6f221701-global), follow the instructions [here]() to create instances of  DB2, Watson Knowledge Catalog and Watson Query.
+
+
+#### 2.2 Sign up for IBM Security Verify
+
+Click [Security Verify](https://www.ibm.com/account/reg/signup?formid=urx-30041) to sign up for Security Verify. After you sign up for an account, the account URL (https://[tenant name].verify.ibm.com/ui/admin) and password is sent in an email.
+
+#### 2.3 Create an OpenShift cluster to deploy applications
+
+Go to this [link](https://cloud.ibm.com/kubernetes/catalog/create?platformType=openshift) to create an instance of OpenShift cluster.
+
+
+### 3. Deploy Insurance Portal Application
+**Login to your OpenShift cluster from command line**
+
+Login to your OpenShift cluster. Access the `IBM Cloud Dashboard > Clusters (under Resource Summary) > click on your OpenShift Cluster > OpenShift web Console`. Click the dropdown next to your username at the top of the OpenShift web console and select Copy Login Command. Select Display Token and copy the oc login command from the web console and paste it into the terminal on your workstation. Run the command to login to the cluster using `oc` command line.
+
+#### 3.1 Deploy Data Access Service
+On the terminal window, got to the repository folder that we cloned earlier and change directory to `/sources/ins-portal-app`. 
+
+Run the following commands to deploy `Insurance Portal application`.
+```
+oc new-project governance
+mvn clean install
+oc new-app . --name=ins-portal-app --strategy=docker
+oc start-build ins-portal-app --from-dir=.
+oc logs -f bc/ins-portal-app
+oc expose svc/ins-portal-app
+```
+Ensure that the application is started successfully using the command `oc get pods`. Also make a note of the route using the command `oc get routes`. 
+
+### 4. Configuration of services
+
+If you are using `CPDaaS` click [here] to configure the services.
+If you are using a self-managed `Cloud Pak For Data` cluster, click [here]() to configure the services. 
