@@ -14,6 +14,8 @@ For this purpose, an insurance business scenario has been taken. There are two a
 - An insurance portal application
 - A chatbot application
 
+![scenario](images/scenario.png)
+
 A customer registers on the insurance portal. During registration, the customer provides mobile number, address and e-mail. After registration, the customer can login and purchase insurance policies. The customer supplies credit card details for purchasing the policy. After an insurance policy has been purchased, a customer can query policy details with next premium due information on the chatbot. The policy details will contain the last 4 digits of the credit card that was used to purchase the policy.
 
 In this code pattern, you will learn how to:
