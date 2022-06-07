@@ -87,6 +87,8 @@ Click [Security Verify](https://www.ibm.com/account/reg/signup?formid=urx-30041)
 
 Go to this [link](https://cloud.ibm.com/kubernetes/catalog/create?platformType=openshift) to create an instance of OpenShift cluster.
 
+Make a note of the `Ingress Subdomain URL`:
+![ingress](images/ingress_subdomain.png)
 
 ### 3. Deploy Insurance Portal Application
 **Login to your OpenShift cluster from command line**
