@@ -1,4 +1,4 @@
-#### 3.2 Configure Security Verify
+### Configure Security Verify
 
 Please keep the `Ingress subdomain URL` of the OpenShift cluster ready. We will need it to configure the Security Verify.
 
