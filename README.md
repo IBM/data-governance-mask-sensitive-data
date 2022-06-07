@@ -56,10 +56,11 @@ Security Verify has been used to implement authentication for the insurance appl
 ## Steps
 1. [Clone the repository](#1-clone-the-repository)
 2. [Create IBM Cloud Services instances](#2-create-ibm-cloud-services)
-3. [Deploy Insurance Portal Application](#3-deploy-insurance-portal-application)
-4. [Configuration of services](#4-configuration-of-services)
-5. [Create Chatbot](#5-create-chatbot)
-7. [Access the Application](#6-access-the-application)
+3. [Configure Security Verify](#3-configure-security-verify)
+4. [Deploy Insurance Portal Application](#4-deploy-insurance-portal-application)
+5. [Configuration of services](#5-configuration-of-services)
+6. [Create Chatbot](#6-create-chatbot)
+7. [Access the Application](#7-access-the-application)
 
 
 ### 1. Clone the repository
@@ -93,12 +94,16 @@ Go to this [link](https://cloud.ibm.com/kubernetes/catalog/create?platformType=o
 Make a note of the `Ingress Subdomain URL`:
 ![ingress](images/ingress_subdomain.png)
 
-### 3. Deploy Insurance Portal Application
+### 3. Configure Security Verify
+
+Please follow the instructions [here](SECURITY_VERIFY_CONFIG.md) to configure `Security Verify`.
+
+### 4. Deploy Insurance Portal Application
 **Login to your OpenShift cluster from command line**
 
 Login to your OpenShift cluster. Access the `IBM Cloud Dashboard > Clusters (under Resource Summary) > click on your OpenShift Cluster > OpenShift web Console`. Click the dropdown next to your username at the top of the OpenShift web console and select Copy Login Command. Select Display Token and copy the oc login command from the web console and paste it into the terminal on your workstation. Run the command to login to the cluster using `oc` command line.
 
-#### 3.1 Deploy Data Access Service
+#### 4.1 Deploy Data Access Service
 On the terminal window, got to the repository folder that we cloned earlier and change directory to `/sources/ins-portal-app`. 
 
 Run the following commands to deploy `Insurance Portal application`.
@@ -112,7 +117,7 @@ oc expose svc/ins-portal-app
 ```
 Ensure that the application is started successfully using the command `oc get pods`. Also make a note of the route using the command `oc get routes`. 
 
-### 4. Configuration of services
+### 5. Configuration of services
 
 If you are using `CPDaaS` click [here] to configure the services.
 If you are using a self-managed `Cloud Pak For Data` cluster, click [here]() to configure the services. 
