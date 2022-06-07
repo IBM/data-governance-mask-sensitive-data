@@ -1,0 +1,29 @@
+<server description="Sample Liberty server">
+
+  <featureManager>
+      <feature>microProfile-3.3</feature>
+  </featureManager>
+
+<!-- Allow port override via PORT env var -->
+ <variable name="PORT" defaultValue="9080"/>
+ <variable name="default.https.port" defaultValue="9443"/>
+ <variable name="project.name" defaultValue="javalibertyapp"/>
+
+ <httpEndpoint id="defaultHttpEndpoint"
+               httpPort="${PORT}"
+               httpsPort="${default.https.port}"
+               host="*" />
+
+	<ssl id="defaultSSLConfig" keyStoreRef="defaultKeyStore" trustStoreRef="defaultTrustStore" sslProtocol="SSL" enabledCiphers="TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 TLS_RSA_WITH_AES_128_CBC_SHA256 TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA TLS_RSA_WITH_AES_128_CBC_SHA TLS_DHE_RSA_WITH_AES_128_CBC_SHA TLS_DHE_RSA_WITH_AES_128_CBC_SHA256"/>
+	
+	<keyStore id="defaultKeyStore" location="ibm-team-ssl.p12" type="PKCS12" password="{xor}Nj0ycis6PjI="/>
+	<keyStore id="defaultTrustStore" location="cacerts" type="JKS" password="changeit"/>
+
+    <!-- Automatically expand WAR files and EAR files -->
+  <applicationManager autoExpand="true"/>
+
+  <applicationMonitor pollingRate="1000ms"/>
+
+  <webApplication location="${project.name}.war" contextRoot="/"/>
+
+</server>
