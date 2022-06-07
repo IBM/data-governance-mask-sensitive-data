@@ -10,10 +10,10 @@ Please keep the `Ingress subdomain URL` of the OpenShift cluster ready. We will 
 - Specify a name for the application. Then, on the General tab, specify a company name.
 - Click the Sign-on tab. Configure SSO using the OpenID Connect based authentication with Authorization code scheme. Specify these values:
   - For the Sign-on method, select Open ID Connect 1.0.
-  - For the Application URL, enter the URL as http://ins-portal-app-governance.{{`Ingress subdomain URL`}}. Replace {{`Ingress subdomain URL`}} with the `Ingress subdomain URL` of the OpenShift cluster. 
+  - For the Application URL, enter the URL as http://ins-portal-app-governance.{{IngressSubdomainURL}}. Replace {{`IngressSubdomainURL`}} with the `Ingress subdomain URL` of the OpenShift cluster. 
   - For the Grant types, check Authorization code.
   - Uncheck Require proof key for code exchange (PKCE) verification.
-  - For Redirect URIs, enter the re-direct URL as http://ins-portal-app-governance.{{`Ingress subdomain URL`}}/insportal/app/oidcclient/redirect/home. Replace {{`Ingress subdomain URL`}} with the `Ingress subdomain URL` of the OpenShift cluster.
+  - For Redirect URIs, enter the re-direct URL as http://ins-portal-app-governance.{{IngressSubdomainURL}}/insportal/app/oidcclient/redirect/home. Replace {{`IngressSubdomainURL`}} with the `Ingress subdomain URL` of the OpenShift cluster.
   - Click Save to save this SSO configuration.
 ![Configure SSO](./images/configure-sso.png)
 - Click the Entitlements tab. For the Access Type, select Automatic access for all users and groups. Click Save to save the custom application.
