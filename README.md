@@ -66,50 +66,21 @@ git clone https://github.com/IBM/data-governance-mask-sensitive-data
 
 ### 2. Create IBM Cloud Services instances
 
-#### 2.1 Sign up for IBM Security Verify
+
+#### 2.1 Create DB2, Watson Knowledge Catalog and Watson Query service instances on Cloud Pak for Data
+In the code pattern, we will be using Cloud Pak for Data.
+
+[Cloud Pak For Data](https://cloud.ibm.com/cloudpaks/data/overview) is available as a fully-managed service(CPDaaS) or as a self-managed software.
+
+If you are planning to use the fully managed service([CPDaaS](https://cloud.ibm.com/cloudpaks/data/overview)), follow the instructions [here]() to create instances of DB2, Watson Knowledge Catalog and Watson Query.
+
+If you are planning to use [self managed service](https://cloud.ibm.com/catalog/content/ibm-cp-datacore-6825cc5d-dbf8-4ba2-ad98-690e6f221701-global), follow the instructions [here]() to create instances of  DB2, Watson Knowledge Catalog and Watson Query.
+
+
+#### 2.2 Sign up for IBM Security Verify
 
 Click [Security Verify](https://www.ibm.com/account/reg/signup?formid=urx-30041) to sign up for Security Verify. After you sign up for an account, the account URL (https://[tenant name].verify.ibm.com/ui/admin) and password is sent in an email.
 
-#### 2.2 Create IBM DB2 Service instance
+#### 2.3 Create an OpenShift cluster to deploy applications
 
-Open a `Terminal`. Run the below commands to login to IBM Cloud using CLI.
-```
-ibmcloud login [--sso]
-```
-
-Configure the login region to be `us-south` and set a resource group (say `Default`).
-
-Run the below command to create an instance of Db2:
-```
-ibmcloud resource service-instance-create db2-ins dashdb-for-transactions lite us-south
-```
-
-The below message will be displayed:
-```
-Creating service instance db2-ins in resource group Default of account Balaji kadambi's Account as balaji.kadambi@gmail.com...
-OK
-Service instance db2-ins was created.
-                     
-Name:             db2-ins   
-ID:               crn:v1:bluemix:public:dashdb-for-transactions:us-south:a/7axxxc68d6f81d71:b52xxx3-4xxxd-4xxd-9xxa-bxxxxxxa::   
-GUID:             b5xxxx3-4xxd-4xxd-9xxa-bxxxxxxxxxxa   
-Location:         us-south   
-State:            provisioning   
-Type:             service_instance   
-Sub Type:            
-Allow Cleanup:    false   
-Locked:           false   
-Created at:       2022-06-06T11:04:30Z   
-Updated at:       2022-06-06T11:04:35Z   
-Last Operation:                   
-                  Status    create in progress      
-                  Message   Started create instance operation 
-```
-
-**Create and make a note of service credentials**
-- Login to IBM Cloud 
-- Click the newly created db2 entry in [IBM Cloud Resource list](https://cloud.ibm.com/resources)
-- Click `Service credentials` on the left hand side navigation menu. If there are no credentials, then click on `New credential` button and create new credentials. 
-
-![](./images/db2-credentials.png)
-
+Go to this [link](https://cloud.ibm.com/kubernetes/catalog/create?platformType=openshift) to create an instance of OpenShift cluster.
