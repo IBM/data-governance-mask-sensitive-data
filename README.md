@@ -106,6 +106,10 @@ Please follow the instructions [here](SECURITY_VERIFY_CONFIG.md) to configure `S
 
 ### 4. Provide access for collaborators to Cloud Pak for Data
 
+For fully managed service, click [here](CPDaaS_Access.md) and follow the steps.
+
+For self managed software, click [here](CP4D_Access.md) and follow the steps.
+
 ### 5. Set up and configure chatbot application
 
 
