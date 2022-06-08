@@ -27,4 +27,4 @@ Select `Service Instances` in the left top hamburger menu. Note all the services
 
 ![services_list](images/services_list.png)
 
-Back to main [README](README#2-create-ibm-cloud-services-instances)
+Back to main [README](README.md#2-create-ibm-cloud-services-instances).
