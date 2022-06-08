@@ -27,8 +27,6 @@ Select `Service Instances` in the left top hamburger menu. Note all the services
 
 ![services_list](images/services_list.png)
 
-Back to main [README](README.md#2-create-ibm-cloud-services-instances).
-
 #### 5. Create service credentials for DB2
 
 In the services list, click on the D2 service instance and select `Manage on IBM Cloud` on the menu. 
@@ -42,3 +40,5 @@ Select `Service credentials` and click on `New Credential`.
 **Note the username, password, host and port of the DB2 instance. The will be needed for configuring Insurance Portal Application, Watson Knowledge Catalog and Watson Query**
 
 ![note_credential](images/note_credential.png)
+
+Back to main [README](README.md#2-create-ibm-cloud-services-instances).
