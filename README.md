@@ -196,6 +196,47 @@ Invoke the URL - http://ins-portal-app-governance.{{IngressSubdomainURL}}/inspor
 
 ### 7. Configure Watson Query
 
+Login to `Cloud Pak for Data` with `Data Owner` credentials. Go to the Watson Query console.
+
+#### 7.1 Enforce data policies
+
+Select `Service settings` in the dropdown menu. Click on `Governance` tab. Enable `Enforce policies within Data Virtualization` and `Enforce publishing to a governed catalog`.
+
+![wq_enforce_policies](images/wq_enforce_policies.png)
+
+#### 7.2 Add Db2 connection 
+
+Select `Data Sources` in the dropdown menu. Click on `Add Connection`.  Select `Db2 on Cloud` if the instance is on IBM Cloud. Enter the `Db2` credentials that you noted earlier, and create the connection.
+
+![wq_db2_conn](images/wq_db2_conn.png)
+
+#### 7.3 Create schema
+
+Select `Schemas` in the dropdown menu. Click on `New schema` with a name say `INSSCHEMA`.
+
+![wq_create_schema](images/wq_create_schema.png)
+
+#### 7.4 Virtualize CUSTOMER and ORDERS tables
+
+Select `Schemas` in the dropdown menu. Select the `CUSTOMER` and `ORDER` tables. Add to Cart. Go to the cart, select `Virtualized data` option and click on `Virtualize` as shown.
+
+![wq_virtualize](images/wq_virtualize.png)
+
+#### 7.5 Create a CUSTOMER_ORDERS_VIEW
+
+Select `Virtualized data`  in the dropdown menu. Select `CUSTOMER` and `ORDERS` table. Click on `Join`. In the next page, create a joiin key from `CUST_ID` of `CUSTOMER` table to `CUST_ID` of `ORDERS` table.
+
+![wq_join](images/wq_join.png)
+
+On the next page, select `Virtualized data` option. Click `Create View`.
+
+![wq_create_view](images/wq_create_view.png)
+
+#### 7.6 Provide user access to `Data Collaborator`
+
+Select `Virtualized data`  in the dropdown menu. For the `CUSTOMER_ORDERS_VIEW` select `Manage Access`. On the access page, click on `Grant Access` and provide access to the `Data Collaborator` user.
+
+![wq_view_access](images/wq_view_access.png)
 
 ### 8. Configure Watson Knowledge Studio
 
