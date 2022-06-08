@@ -18,11 +18,11 @@ There are three areas of access policies that need to be configured:
 - Login to the `Data Owner` IBM Cloud account.
 - Click on `Manage`  and select `Access(IAM)` on the top navigation menu.
 - Click on `Authorizations` on the left navigation menu. Click `Invite user` and enter the `E-mail` address of the `Data Collaborator` IBM Account.
-- Login to the `data Collaborator` IBM cloud account and accept the invitation.
+- Login to the `Data Collaborator` IBM cloud account and accept the invitation.
 
 ![invite_user](./images/invite_user.png)
 
-- Next, go back to the `Data Owner` clous account, and click on `Access groups` on the left navigation menu. Click `Create`. Enter `datagov` as the name of the access group.
+- Next, go back to the `Data Owner` cloud account, and click on `Access groups` on the left navigation menu. Click `Create`. Enter `datagov` as the name of the access group.
 
 ![access_group](./images/access_group.png)
 
