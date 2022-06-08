@@ -186,6 +186,14 @@ oc expose svc/ins-portal-app
 ```
 Ensure that the application is started successfully using the command `oc get pods`. Also make a note of the route using the command `oc get routes`. 
 
+#### 6.3 Configure Db2 database
+
+In this step, we will create two tables in the Db2 database - CUSTOMER and ORDERS table.
+
+Invoke the URL - http://ins-portal-app-governance.{{Ingress subdomain URL}}/insportal/app/setupdb
+
+>Note: Replace {{Ingress subdomain URL}} with `Ingress subdomain` of the OpenShift cluster.
+
 ### 7. Configure Watson Query
 
 
