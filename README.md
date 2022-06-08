@@ -58,10 +58,10 @@ Security Verify has been used to implement authentication for the insurance appl
 2. [Create IBM Cloud Services instances](#2-create-ibm-cloud-services)
 3. [Configure Security Verify](#3-configure-security-verify)
 4. [Provide access for collaborators to Cloud Pak for Data](#4-provide-access-for-collaborators-to-cloud-pak-for-data)
-5. [Configure Watson Query](#5-configure-watson-query)
-6. [Configure Watson Knowledge Studio](#6-configure-watson-knowledge-studio)
-7. [Set up and configure chatbot application](#7-set-up-and-configure-chatbot-application)
-8. [Deploy Insurance Portal Application](#8-deploy-insurance-portal-application)
+5. [Set up and configure chatbot application](#5-set-up-and-configure-chatbot-application)
+6. [Deploy Insurance Portal Application](#6-deploy-insurance-portal-application)
+7. [Configure Watson Query](#5-configure-watson-query)
+8. [Configure Watson Knowledge Studio](#6-configure-watson-knowledge-studio)
 9. [Access the Application](#7-access-the-application)
 
 
@@ -104,25 +104,17 @@ Please follow the instructions [here](SECURITY_VERIFY_CONFIG.md) to configure `S
 
 ### 4. Provide access for collaborators to Cloud Pak for Data
 
-
-### 5. Configure Watson Query
-
-
-### 6. Configure Watson Knowledge Studio
+### 5. Set up and configure chatbot application
 
 
-### 7. Set up and configure chatbot application
-
-
-
-### 8. Deploy Insurance Portal Application
+### 6. Deploy Insurance Portal Application
 **Login to your OpenShift cluster from command line**
 
 Login to your OpenShift cluster. Access the `IBM Cloud Dashboard > Clusters (under Resource Summary) > click on your OpenShift Cluster > OpenShift web Console`. Click the dropdown next to your username at the top of the OpenShift web console and select Copy Login Command. Select Display Token and copy the oc login command from the web console and paste it into the terminal on your workstation. Run the command to login to the cluster using `oc` command line.
 
-#### 8.1 Configure Insurance Portal Service
+#### 6.1 Configure Insurance Portal Service
 
-**8.11 Changes to server.xml**
+**6.1.1 Changes to server.xml**
 
 In the cloned repo folder - go to `src/main/liberty/config`. Open `server.xml`.
 
@@ -142,7 +134,7 @@ Make the below changes for the `openidConnectClient` element and save the file:
 		tokenEndpointUrl="https://{{tenantId}}.verify.ibm.com/v1.0/endpoint/default/token"></openidConnectClient>
 ```
 
-**8.12 Changes to db.config**
+**6.1.2 Changes to db.config**
 
 In the cloned repo folder - go to `src/main/resources`. Open `db.config`.
 
@@ -155,7 +147,7 @@ password=
 schema=
 ```
 
-**8.13 Changes to verify.config**
+**6.1.3 Changes to verify.config**
 In the cloned repo folder - go to `src/main/resources`. Open `verify.config`.
 
 Make the below changes and save the file:
@@ -174,7 +166,7 @@ apiClientId=
 apiClientSecret=
 ```
 
-#### 8.2 Deploy Insurance Portal Service
+#### 6.2 Deploy Insurance Portal Service
 On the terminal window, got to the repository folder that we cloned earlier and change directory to `/sources/ins-portal-app`. 
 
 Run the following commands to deploy `Insurance Portal application`.
@@ -187,5 +179,10 @@ oc logs -f bc/ins-portal-app
 oc expose svc/ins-portal-app
 ```
 Ensure that the application is started successfully using the command `oc get pods`. Also make a note of the route using the command `oc get routes`. 
+
+### 7. Configure Watson Query
+
+
+### 8. Configure Watson Knowledge Studio
 
 ### 9. Access the application
