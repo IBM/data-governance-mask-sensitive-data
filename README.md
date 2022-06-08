@@ -112,6 +112,94 @@ For self managed software, click [here](CP4D_Access.md) and follow the steps.
 
 ### 5. Set up and configure chatbot application
 
+As detailed in architecture diagram, the chatbot uses Cloud Functions (or serverless functions) to call external APIs. So the chatbot side has three components aka the chatbot itself, Cloud functions to call external APIs and the application which hosts external APIs.
+
+#### 5.1 Deploy REST application to access insurance details
+
+We will deploy application that hosts external APIs to connect to Watson Query and read insurance details of users.
+- From a terminal, login to your cluster using the oc login command
+- Change directory to \<cloned repo parent folder\>/sources/chatbot/db-rest-app/src/main/resources.
+- In a file editor open the file `env.props`.
+- Replace `HOSTNAME`, `PORT` and `DB_NAME` with the host, port and database name that you noted during Db2 credentials creation.
+- As noted in [this section](CPDaaS_Access.md#3-create-ibm-cloud-api-key-in-data-collaborator-ibm-cloud-account), update value for API_KEY. After updating it should look like
+```
+HOSTNAME=xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx.xxxxxxxxxxxxxxxxxxx.databases.appdomain.cloud
+PORT=XXXXX
+API_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+DB_NAME=XXXXX
+```
+- Ensure you are in `governance` project. If not change to governance project `oc project governance`.
+- Change directory to \<cloned repo parent folder\>/sources/chatbot/db-rest-app
+- Run the following commands to deploy the application on to cluster
+```
+oc new-app . --name=dbconnection --strategy=docker
+oc start-build dbconnection --from-dir=.
+```
+Monitor the logs using 
+```
+oc logs -f bc/dbconnection
+```
+This may take a few minutes. 
+
+When done, check the status of pods. You may use `oc get pods` command.
+Expose the application for it to be accessed
+```
+oc expose svc/dbconnection
+oc get routes
+```
+Make a note of the `HOST`. It will be used in Cloud functions.
+
+
+#### 5.2 Create Cloud Functions
+
+- Login to IBM Cloud dashboard.
+- In the Navigation Menu, click `Functions`->`Actions`.
+- Click `Create` button.
+- Click on `Action` tile.
+- In `Action Name` text field, provide a name for the action such as `Make DB Calls`. Leave `Enclosing Package` as `Default Package` and `Runtime` as `Node.js 16`. Click `Create`.
+- Replace the default code with the code provided in <Cloned repo parent folder>/chatbot/cloud-functions/Cloud Function.js.
+- In the code, on line number 14, you will see that it requires hostname for the REST application that you deployed in [step 5.1](#51-deploy-rest-application-to-access-insurance-details). Replace the hostname with the route that was notes in [step 5.1](#51-deploy-rest-application-to-access-insurance-details).
+- Click `Save`.
+- Click `Endpoints` link on the left hand side of the screen.
+- Under `Web Action` enable the checkbox `Enable as Web Action`. Click `Save`.
+- Under `REST API`, make a note of the link with heading `URL`. We will need to use this for chatbot webhook settings.
+
+
+#### 5.3 Create Watson Assistant chatbot
+<details>
+<summary>CPDaaS</summary>
+
+Note that we will be using Watson Assistant V1. 
+- Login to IBM Cloud dashboard.
+- Click on `Catalog` option on the top menu and search for `Watson Assistant`
+- Click on the Watson Assistant tile that shows up.
+- Select `Trial` plan and check the license agreement after reading the terms. Click create. It will take a minute or two for the Watson Assistant instance to be provisioned on your IBM Cloud dashboard.
+
+</details>
+
+<details>
+    <summary>CP4D</summary>
+</details>
+
+- Click on the Watson Service instance link on your cloud resources and click `Launch Watson Assistant`.
+- In the Watson Assistant home page, click `skills` option on the left menu options.
+> If you do not see skills icon, then the Watson assistant view could of of new experience UI. For this code pattern, we will use the classic view and hence switch to classic view by navigating to `manage` (user icon on top right corner) and clicking `Switch to classic experience`.
+- Click `Create skill` button, then click `Dialog skill` tile. Click `Next`.
+- Select `Upload skill` tab. Drag and drop or browse to select the file in <cloned repo>/sources/chatbot/chatbot resources/ecomm-skill-dialog.json. Click `Upload`.
+- On the left navigation links click `Options`->`Webhooks` on the left hand navigation.
+- In `URL` text field, enter the REST API endpoint as noted in section [5.2](#52-create-cloud-functions) and append it with .json. It should look something like this
+```
+https://eu-gb.functions.appdomain.cloud/api/v1/web/.../default/Make%20DB%20Calls.json
+```
+- Click `Assistants` icon on the top left corner of Watson Assistant screen
+- Click `Create assistant`.
+- Give a name for your assistant, optionally enter a description and click `Create assistant`.
+- On the just created Assistant screen, click the `Preview` button. Make a note of `integrationID` and `serviceInstanceID` from the link provided under the section `Share this link`.
+- Close the window using the `x` button placed just below the user icon on the top right corner.
+- In Assistants page, under `Integrations` section (bottom right corner of the screen), click `Integrate web chat`.
+- Click on `Create` button.
+- Click on `Embed` tab. Copy and save the `script` in a text file. In this script, you will need to update `integrationID` and `serviceInstanceID` as noted from Preview link earlier.
+- This code snippet will be used in the Insurnace Portal UI.
 
 ### 6. Deploy Insurance Portal Application
 **Login to your OpenShift cluster from command line**
