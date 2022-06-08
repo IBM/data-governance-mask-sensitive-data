@@ -78,11 +78,12 @@ git clone https://github.com/IBM/data-governance-mask-sensitive-data
 In the code pattern, we will be using Cloud Pak for Data.
 
 [Cloud Pak For Data](https://cloud.ibm.com/cloudpaks/data/overview) is available in two modes -
-- Fully-managed service(CPDaaS - https://cloud.ibm.com/cloudpaks/data/overview) 
-- Self-managed software(https://cloud.ibm.com/catalog/content/ibm-cp-datacore-6825cc5d-dbf8-4ba2-ad98-690e6f221701-global)
+- [Fully-managed service - CPDaaS] (https://cloud.ibm.com/cloudpaks/data/overview) 
+- [Self-managed software](https://cloud.ibm.com/catalog/content/ibm-cp-datacore-6825cc5d-dbf8-4ba2-ad98-690e6f221701-global)
 
-If you are using the fully managed service, click [here](CPDaaS.md) and follow the steps.
-If you are using the self managed service, click [here](CP4D.md) and follow the steps.
+For fully managed service, click [here](CPDaaS.md) and follow the steps.
+
+For self managed service, click [here](CP4D.md) and follow the steps.
 
 #### 2.2 Sign up for IBM Security Verify
 
