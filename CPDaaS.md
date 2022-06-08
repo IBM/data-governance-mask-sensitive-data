@@ -26,3 +26,5 @@ Search for `Watson Query` in the catalog. Click on `Watson Query` to create `Wat
 Select `Service Instances` in the left top hamburger menu. Note all the services have been created and are in `Active` state.
 
 ![services_list](images/services_list.png)
+
+Back to main [README](README#2-create-ibm-cloud-services-instances)
