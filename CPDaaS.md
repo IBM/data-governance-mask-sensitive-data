@@ -25,4 +25,4 @@ Search for `Watson Query` in the catalog. Click on `Watson Query` to create `Wat
 
 Select `Service Instances` in the left top hamburger menu. Note all the services have been created and are in `Active` state.
 
-![list_services](images/list_services.png)
+![services_list](images/services_list.png)
