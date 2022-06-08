@@ -39,6 +39,6 @@ Select `Service credentials` and click on `New Credential`.
 
 ![create_db2_credential](images/create_db2_credential.png)
 
-Note the username, password, host and post of the DB2 instance.
+**Note the username, password, host and port of the DB2 instance. The will be needed for configuring Insurance Portal Application, Watson Knowledge Catalog and Watson Query**
 
 ![note_credential](images/note_credential.png)
