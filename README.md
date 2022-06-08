@@ -16,7 +16,10 @@ For this purpose, an insurance business scenario has been taken. There are two a
 
 ![scenario](images/scenario.png)
 
-A customer registers on the insurance portal. During registration, the customer provides mobile number, address and e-mail. After registration, the customer can login and purchase insurance policies. The customer supplies credit card details for purchasing the policy. After an insurance policy has been purchased, a customer can query policy details with next premium due information on the chatbot. The policy details will contain the last 4 digits of the credit card that was used to purchase the policy displayed in addition to other details in the chatbot application.
+A customer registers on the insurance portal. During registration, the customer provides mobile number, address and e-mail. After registration, the customer can login and purchase insurance policies. The customer supplies credit card details for purchasing the policy. 
+After an insurance policy has been purchased, a customer can query policy details with next premium due information on the chatbot. The user will be able to query this information without logging in. This requires sensitive information in the policy to be masked win the display. In this code pattern, the first 12 digits of the credit card used to purchase the policy will be masked and the last 4 digits will be displayed in addition to other details in the chatbot application.
+
+The `Insurance Portal Application` owns the policy data. The `Chatbot Application` will have a read-only access of the data with `data protection policies` applied on the data specified in the `Data Governance` framework.
 
 In this code pattern, you will learn how to:
 - Set up data assets for governance in the Watson Knowledge Catalog
@@ -53,10 +56,11 @@ Security Verify has been used to implement authentication for the insurance appl
 ## Steps
 1. [Clone the repository](#1-clone-the-repository)
 2. [Create IBM Cloud Services instances](#2-create-ibm-cloud-services)
-3. [Deploy Insurance Portal Application](#3-deploy-insurance-portal-application)
-4. [Configuration of services](#4-configuration-of-services)
-5. [Create Chatbot](#5-create-chatbot)
-7. [Access the Application](#6-access-the-application)
+3. [Configure Security Verify](#3-configure-security-verify)
+4. [Deploy Insurance Portal Application](#4-deploy-insurance-portal-application)
+5. [Configuration of services](#5-configuration-of-services)
+6. [Create Chatbot](#6-create-chatbot)
+7. [Access the Application](#7-access-the-application)
 
 
 ### 1. Clone the repository
@@ -70,14 +74,16 @@ git clone https://github.com/IBM/data-governance-mask-sensitive-data
 
 
 #### 2.1 Create DB2, Watson Knowledge Catalog and Watson Query service instances on Cloud Pak for Data
+
 In the code pattern, we will be using Cloud Pak for Data.
 
-[Cloud Pak For Data](https://cloud.ibm.com/cloudpaks/data/overview) is available as a fully-managed service(CPDaaS) or as a self-managed software.
+[Cloud Pak For Data](https://cloud.ibm.com/cloudpaks/data/overview) is available in two modes -
+- [Fully-managed service](https://cloud.ibm.com/cloudpaks/data/overview) 
+- [Self-managed software](https://cloud.ibm.com/catalog/content/ibm-cp-datacore-6825cc5d-dbf8-4ba2-ad98-690e6f221701-global)
 
-If you are planning to use the fully managed service([CPDaaS](https://cloud.ibm.com/cloudpaks/data/overview)), follow the instructions [here]() to create instances of DB2, Watson Knowledge Catalog and Watson Query.
+For fully managed service, click [here](CPDaaS.md) and follow the steps.
 
-If you are planning to use [self managed service](https://cloud.ibm.com/catalog/content/ibm-cp-datacore-6825cc5d-dbf8-4ba2-ad98-690e6f221701-global), follow the instructions [here]() to create instances of  DB2, Watson Knowledge Catalog and Watson Query.
-
+For self managed software, click [here](CP4D.md) and follow the steps.
 
 #### 2.2 Sign up for IBM Security Verify
 
@@ -90,12 +96,70 @@ Go to this [link](https://cloud.ibm.com/kubernetes/catalog/create?platformType=o
 Make a note of the `Ingress Subdomain URL`:
 ![ingress](images/ingress_subdomain.png)
 
-### 3. Deploy Insurance Portal Application
+### 3. Configure Security Verify
+
+Please follow the instructions [here](SECURITY_VERIFY_CONFIG.md) to configure `Security Verify`.
+
+### 4. Deploy Insurance Portal Application
 **Login to your OpenShift cluster from command line**
 
 Login to your OpenShift cluster. Access the `IBM Cloud Dashboard > Clusters (under Resource Summary) > click on your OpenShift Cluster > OpenShift web Console`. Click the dropdown next to your username at the top of the OpenShift web console and select Copy Login Command. Select Display Token and copy the oc login command from the web console and paste it into the terminal on your workstation. Run the command to login to the cluster using `oc` command line.
 
-#### 3.1 Deploy Data Access Service
+#### 4.1 Configure Insurance Portal Service
+
+**4.11 Changes to server.xml**
+
+In the cloned repo folder - go to `src/main/liberty/config`. Open `server.xml`.
+
+Make the below changes for the `openidConnectClient` element and save the file:
+- Replace {{ingress-sub-domain}} with `Ingress subdomain` of the OpenShift cluster.
+- Replace {{clientId}} and {{clientSecret}} with the Client ID and Client secret noted on the `Sign-on` tab of Security Verify.
+- Replace {{tenantId}} with the tenant id of Security Verify noted at the time of creation.
+
+```
+<openidConnectClient id="home"
+		signatureAlgorithm="RS256"
+		httpsRequired="false"    
+		redirectToRPHostAndPort="http://ins-portal-app-governance.{{ingress-sub-domain}}/insportal/app"
+		clientId="{{clientId}}"
+		clientSecret="{{clientSecret}}"
+		authorizationEndpointUrl="https://{{tenantId}}.verify.ibm.com/v1.0/endpoint/default/authorize"
+		tokenEndpointUrl="https://{{tenantId}}.verify.ibm.com/v1.0/endpoint/default/token"></openidConnectClient>
+```
+
+**4.12 Changes to db.config**
+
+In the cloned repo folder - go to `src/main/resources`. Open `db.config`.
+
+Replace the {{host}} and {{port}} with the host and port you noted during Db2 credentials creation. Enter the userid, password and schema with the username, password and username(in uppercase). Save the file.
+> Note: the schema should be in uppercase of the username noted in Db2 credentials.
+```
+jdbcurl=jdbc:db2://{{host}}:{{port}}/bludb:sslConnection=true;
+userid=
+password=
+schema=
+```
+
+**4.13 Changes to verify.config**
+In the cloned repo folder - go to `src/main/resources`. Open `verify.config`.
+
+Make the below changes and save the file:
+- Replace {{tenant-id}} with the tenant id of Security Verify noted at the time of creation.
+- For `clientId` and `clientSecret` enter the Client ID and Client secret noted on the `Sign-on` tab of Security Verify.
+- For `apiClientId` and `apiClientSecret` enter the Client ID and Client secret noted on the `API Access` tab of Security Verify.
+
+```
+introspectionUrl=https://{{tenant-id}}.verify.ibm.com/v1.0/endpoint/default/introspect
+tokenUrl=https://{{tenant-id}}.verify.ibm.com/v1.0/endpoint/default/token
+userInfoUrl=https://{{tenant-id}}.verify.ibm.com/v1.0/endpoint/default/userinfo
+clientId=
+clientSecret=
+usersUrl=https://{{tenant-id}}.verify.ibm.com/v2.0/Users
+apiClientId=
+apiClientSecret=
+```
+
+#### 4.2 Deploy Insurance Portal Service
 On the terminal window, got to the repository folder that we cloned earlier and change directory to `/sources/ins-portal-app`. 
 
 Run the following commands to deploy `Insurance Portal application`.
@@ -109,7 +173,7 @@ oc expose svc/ins-portal-app
 ```
 Ensure that the application is started successfully using the command `oc get pods`. Also make a note of the route using the command `oc get routes`. 
 
-### 4. Configuration of services
+### 5. Configuration of services
 
 If you are using `CPDaaS` click [here] to configure the services.
 If you are using a self-managed `Cloud Pak For Data` cluster, click [here]() to configure the services. 
