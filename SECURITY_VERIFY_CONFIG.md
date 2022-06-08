@@ -37,5 +37,4 @@ Then, note down the following endpoints: **authorization_endpoint, token_endpoin
 
 ![Note API Client credentials](./images/note-api-client-credentials.png)
 
-Back to main [README.md](README.md) page.
-
+Back to main [README.md](README.md#3-configure-security-verify) page.
