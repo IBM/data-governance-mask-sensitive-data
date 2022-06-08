@@ -93,8 +93,8 @@ Click [Security Verify](https://www.ibm.com/account/reg/signup?formid=urx-30041)
 
 #### 2.3 Create an OpenShift cluster to deploy applications
 
->Note: Skip this section if you are using a Cloud Pak For Data as a self managed software, the same cluster can be used for application deployment.
->
+>Note: If you are using a Cloud Pak For Data as a self managed software, the same cluster can be used for application deployment.
+
 Go to this [link](https://cloud.ibm.com/kubernetes/catalog/create?platformType=openshift) to create an instance of OpenShift cluster.
 
 Make a note of the `Ingress Subdomain URL`:
