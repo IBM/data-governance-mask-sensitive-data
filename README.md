@@ -83,9 +83,21 @@ In the code pattern, we will be using Cloud Pak for Data.
 - [Fully-managed service](https://cloud.ibm.com/cloudpaks/data/overview) 
 - [Self-managed software](https://cloud.ibm.com/catalog/content/ibm-cp-datacore-6825cc5d-dbf8-4ba2-ad98-690e6f221701-global)
 
-For fully managed service, click [here](CPDaaS.md) and follow the steps.
+##### 2.1.1 For fully managed service, click [here](CPDaaS.md) and follow the steps.
 
-For self managed software, click [here](CP4D.md) and follow the steps.
+##### 2.1.2 For self managed software, click [here](CP4D.md) and follow the steps.
+
+##### 2.1.3 Create a catalog in Watson Knowledge Studio for Insurance Portal Application
+
+Go to the Watson Knowledge Studio console. Select `View All Catalogs` on the hamburger menu on the top left.
+
+Click on `Create Catalog`.
+
+![click_create_catalog](images/click_create_catalog.png)
+
+Enter a name for the catalog (say `InsClCatalog`). Enter a description. Click `Create`.
+
+![create_catalog](images/create_catalog.png)
 
 #### 2.2 Sign up for IBM Security Verify
 
