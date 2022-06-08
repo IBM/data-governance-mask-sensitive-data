@@ -36,3 +36,5 @@ There are three areas of access policies that need to be configured:
 - Login to the `Data Collaborator` IBM Cloud account.
 - Click on `Manage`  and select `Access(IAM)` on the top navigation menu.
 - Click on `API Keys` on the left navigation menu. Click on `Create an IBM Cloud API Key`. Make a note of the key. This will be required for the chatbot application
+
+![cloud_api_key](./images/cloud_api_key.png)
