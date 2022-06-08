@@ -74,14 +74,15 @@ git clone https://github.com/IBM/data-governance-mask-sensitive-data
 
 
 #### 2.1 Create DB2, Watson Knowledge Catalog and Watson Query service instances on Cloud Pak for Data
+
 In the code pattern, we will be using Cloud Pak for Data.
 
-[Cloud Pak For Data](https://cloud.ibm.com/cloudpaks/data/overview) is available as a fully-managed service(CPDaaS) or as a self-managed software.
+[Cloud Pak For Data](https://cloud.ibm.com/cloudpaks/data/overview) is available in two modes -
+- Fully-managed service(CPDaaS - https://cloud.ibm.com/cloudpaks/data/overview) 
+- Self-managed software(https://cloud.ibm.com/catalog/content/ibm-cp-datacore-6825cc5d-dbf8-4ba2-ad98-690e6f221701-global)
 
-If you are planning to use the fully managed service([CPDaaS](https://cloud.ibm.com/cloudpaks/data/overview)), follow the instructions [here]() to create instances of DB2, Watson Knowledge Catalog and Watson Query.
-
-If you are planning to use [self managed service](https://cloud.ibm.com/catalog/content/ibm-cp-datacore-6825cc5d-dbf8-4ba2-ad98-690e6f221701-global), follow the instructions [here]() to create instances of  DB2, Watson Knowledge Catalog and Watson Query.
-
+If you are using the fully managed service, click [here](CPDaaS.md) and follow the steps.
+If you are using the self managed service, click [here](CP4D.md) and follow the steps.
 
 #### 2.2 Sign up for IBM Security Verify
 
