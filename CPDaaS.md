@@ -28,3 +28,17 @@ Select `Service Instances` in the left top hamburger menu. Note all the services
 ![services_list](images/services_list.png)
 
 Back to main [README](README.md#2-create-ibm-cloud-services-instances).
+
+#### 5. Create service credentials for DB2
+
+In the services list, click on the D2 service instance and select `Moanage on IBM Cloud` on the menu. 
+
+![manage_in_cloud](images/manage_in_cloud.png)
+
+Select `Service credentials` and click on `New Credential`.
+
+![create_db2_credential](images/create_db2_credential.png)
+
+Note the username, password, host and post of the DB2 instance.
+
+![note_credential](images/note_credential.png)
