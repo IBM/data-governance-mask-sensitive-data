@@ -95,7 +95,7 @@ Click on `Create Catalog`.
 
 ![click_create_catalog](images/click_create_catalog.png)
 
-Enter a name for the catalog (say `InsClCatalog`). Enter a description. Click `Create`.
+Enter a name for the catalog (say `InsClCatalog`). Enter a description. Select `Enforce data poliies`. Click `Create`.
 
 ![create_catalog](images/create_catalog.png)
 
