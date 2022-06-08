@@ -338,6 +338,77 @@ Select `Virtualized data`  in the dropdown menu. For the `CUSTOMER_ORDERS_VIEW` 
 
 ![wq_view_access](images/wq_view_access.png)
 
+#### 7.6 Connection credentials for Watson Query
+
+Select `Connection details` in the dropdown menu. Note the `Host name`, `Port`, `User id` and `JDBC` string. This will be required for viewing the data on `Watson Knowledge Studio`.
+
 ### 8. Configure Watson Knowledge Studio
 
+Login to `Cloud Pak for Data` with `Data Owner` credentials. Go to the Watson Query console.
+
+#### 8.1 View the catalog and data assets
+	
+Click `View All Catalogs` on the left hamburger menu. Click on the catalog that you created earlier. All the Watson Query Data Assets should appear as shown.
+
+![view_catalog](images/view_catalog.png)
+
+Click on the `INSSCHEMA.CUSTOMER` data asset. Click on the `Asset` tab. 
+	
+Enter the connection details of Watson Query noted earlier.
+	
+If it is a fully managed Cloud Pak for Data service:
+- On the IBM Cloud Dashboard, go to `Manage` and select `Access (IAM`). Create an IBM Cloud API Key. Note the API key.
+- On the `Asset` tab, select API Key as the mode of authentication.
+- Enter the API key noted in the earlier step, and click `Connect`.
+
+If it is a self managed software for Cloud Pak for Data:
+- Enter the `Data Owner` credentials for Cloud Pak for Data.
+
+The data should now be visible on the `Asset` tab:
+![wkc_customer](images/wkc_customer.png)
+	
+#### 8.1.1 Create a data profile
+	
+For each of the assets - `INSSCHEMA.CUSTOMER`,`INSSCHEMA.ORDERS` and `INSSCHEMA.CUSTOMER_ORDERS_VIEW`, go to the `Profile` tab and click `Create Profile`.
+
+![wkc_customer_profile](images/wkc_customer_profile.png)
+	
+#### 8.2 Create a category
+
+Click `View All Catalogs` on the left hamburger menu. Click on `Add category` and select `New category`.
+
+![create_category](images/create_category.png)
+	
+Create a category for personal financial information. Enter a `name` and click `Create`.
+	
+#### 8.3 Create a data class
+
+Click `Data classes` on the left hamburger menu. Click on `Add data class` and select `New data class`.	
+
+Enter details as shown and click `Create`.
+
+![create_dclass](images/create_dclass.png)	
+
+This will be saved as `Draft`. Click `Publish` to publish the data class.
+
+![publish_dclass](images/publish_dclass.png)
+	
+#### 8.3 Create a business term
+
+Click `Business terms` on the left hamburger menu. Click on `Add business term` and select `New business term`.	
+
+Enter details as shown and click `Create`.
+
+![create_bterm](images/create_bterm.png)
+	
+This will be saved as `Draft`. Click `Publish` to publish the business term.
+
+#### 8.4 Create a data protection rule
+
+Click `Rules` on the left hamburger menu. Click on `Add rule` and select `New rule`.	
+Next select `Data protection rule`. Configure the rule as shown. This rule will mask the credit card data for collaborators.
+
+![create_rule](images/create_rule.png)
+
+	
 ### 9. Access the application
