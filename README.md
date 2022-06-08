@@ -190,9 +190,9 @@ Ensure that the application is started successfully using the command `oc get po
 
 In this step, we will create two tables in the Db2 database - CUSTOMER and ORDERS table.
 
-Invoke the URL - http://ins-portal-app-governance.{{Ingress subdomain URL}}/insportal/app/setupdb
+Invoke the URL - http://ins-portal-app-governance.{{IngressSubdomainURL}}/insportal/app/setupdb
 
->Note: Replace {{Ingress subdomain URL}} with `Ingress subdomain` of the OpenShift cluster.
+>Note: Replace {{IngressSubdomainURL}} with `Ingress subdomain` of the OpenShift cluster.
 
 ### 7. Configure Watson Query
 
