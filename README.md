@@ -105,7 +105,61 @@ Please follow the instructions [here](SECURITY_VERIFY_CONFIG.md) to configure `S
 
 Login to your OpenShift cluster. Access the `IBM Cloud Dashboard > Clusters (under Resource Summary) > click on your OpenShift Cluster > OpenShift web Console`. Click the dropdown next to your username at the top of the OpenShift web console and select Copy Login Command. Select Display Token and copy the oc login command from the web console and paste it into the terminal on your workstation. Run the command to login to the cluster using `oc` command line.
 
-#### 4.1 Deploy Data Access Service
+#### 4.1 Configure Insurance Portal Service
+
+**Changes to server.xml**
+
+In the cloned repo folder - go to `src/main/liberty/config`. Open `server.xml`.
+
+Make the below changes for the `openidConnectClient` element and save the file:
+- Replace {{ingress-sub-domain}} with `Ingress subdomain` of the OpenShift cluster.
+- Replace {{clientId}} and {{clientSecret}} with the Client ID and Client secret noted on the `Sign-on` tab of Security Verify.
+- Replace {{tenantId}} with the tenant id of Security Verify noted at the time of creation.
+
+```
+<openidConnectClient id="home"
+		signatureAlgorithm="RS256"
+		httpsRequired="false"    
+		redirectToRPHostAndPort="http://ins-portal-app-governance.{{ingress-sub-domain}}/insportal/app"
+		clientId="{{clientId}}"
+		clientSecret="{{clientSecret}}"
+		authorizationEndpointUrl="https://{{tenantId}}.verify.ibm.com/v1.0/endpoint/default/authorize"
+		tokenEndpointUrl="https://{{tenantId}}.verify.ibm.com/v1.0/endpoint/default/token"></openidConnectClient>
+```
+
+**Changes to db.config**
+
+In the cloned repo folder - go to `src/main/resources`. Open `db.config`.
+
+Replace the {{host}} and {{port}} with the host and port you noted during Db2 credentials creation. Enter the userid, password and schema with the username, password and username(in uppercase). Save the file.
+> Note: the schema should be in uppercase of the username noted in Db2 credentials.
+```
+jdbcurl=jdbc:db2://{{host}}:{{port}}/bludb:sslConnection=true;
+userid=
+password=
+schema=
+```
+
+**Changes to verify.config**
+In the cloned repo folder - go to `src/main/resources`. Open `verify.config`.
+
+Make the below changes and save the file:
+- Replace {{tenant-id}} with the tenant id of Security Verify noted at the time of creation.
+- For `clientId` and `clientSecret` enter the Client ID and Client secret noted on the `Sign-on` tab of Security Verify.
+- For `apiClientId` and `apiClientSecret` enter the Client ID and Client secret noted on the `API Access` tab of Security Verify.
+
+```
+introspectionUrl=https://{{tenant-id}}.verify.ibm.com/v1.0/endpoint/default/introspect
+tokenUrl=https://{{tenant-id}}.verify.ibm.com/v1.0/endpoint/default/token
+userInfoUrl=https://{{tenant-id}}.verify.ibm.com/v1.0/endpoint/default/userinfo
+clientId=
+clientSecret=
+usersUrl=https://{{tenant-id}}.verify.ibm.com/v2.0/Users
+apiClientId=
+apiClientSecret=
+```
+
+#### 4.2 Deploy Insurance Portal Service
 On the terminal window, got to the repository folder that we cloned earlier and change directory to `/sources/ins-portal-app`. 
 
 Run the following commands to deploy `Insurance Portal application`.
