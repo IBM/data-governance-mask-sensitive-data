@@ -132,14 +132,16 @@ We will deploy application that hosts external APIs to connect to Watson Query a
 - From a terminal, login to your cluster using the oc login command
 - Change directory to \<cloned repo parent folder\>/sources/chatbot/db-rest-app/src/main/resources.
 - In a file editor open the file `env.props`.
-- Replace `HOSTNAME`, `PORT` and `DB_NAME` with the host, port and database name that you noted during Watson Query creation in [this section](CPDaaS.md#51-note-down-watson-query-credentials).
-- As noted in [this section](CPDaaS_Access.md#3-create-ibm-cloud-api-key-in-data-collaborator-ibm-cloud-account), update value for API_KEY. After updating it should look like
+- Replace `HOSTNAME`, `PORT` and `DB_NAME` with the host, port and database name that you noted during Watson Query creation in [this section](CPDaaS.md#51-note-down-watson-query-credentials) for fully managed service mode, and [here](CPD.md#2-note-down-credentials-for-db2-and-watson-query) for self managed software mode.
+- For a fully managed Cloud Pak for Data service - as noted in [this section](CPDaaS_Access.md#3-create-ibm-cloud-api-key-in-data-collaborator-ibm-cloud-account), update value for API_KEY. After updating it should look like
 ```
 HOSTNAME=xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx.xxxxxxxxxxxxxxxxxxx.databases.appdomain.cloud
 PORT=XXXXX
 API_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 DB_NAME=XXXXX
 ```
+> Note: If you are using the self managed cluster, enter the `user id` and `password` of the `Data Collaborator` user as the credentials for accessing the Watson Query. The database ODBC string must be changed to take username, password instead of API Key.
+
 - Ensure you are in `governance` project. If not change to governance project `oc project governance`.
 - Change directory to \<cloned repo parent folder\>/sources/chatbot/db-rest-app
 - Run the following commands to deploy the application on to cluster
