@@ -132,7 +132,7 @@ We will deploy application that hosts external APIs to connect to Watson Query a
 - From a terminal, login to your cluster using the oc login command
 - Change directory to \<cloned repo parent folder\>/sources/chatbot/db-rest-app/src/main/resources.
 - In a file editor open the file `env.props`.
-- Replace `HOSTNAME`, `PORT` and `DB_NAME` with the host, port and database name that you noted during Db2 credentials creation.
+- Replace `HOSTNAME`, `PORT` and `DB_NAME` with the host, port and database name that you noted during Watson Query creation in [this section](CPDaaS.md#51-note-down-watson-query-credentials).
 - As noted in [this section](CPDaaS_Access.md#3-create-ibm-cloud-api-key-in-data-collaborator-ibm-cloud-account), update value for API_KEY. After updating it should look like
 ```
 HOSTNAME=xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx.xxxxxxxxxxxxxxxxxxx.databases.appdomain.cloud
