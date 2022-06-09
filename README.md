@@ -390,7 +390,7 @@ This will be saved as `Draft`. Click `Publish` to publish the business term.
 #### 8.4 Create a data protection rule
 
 Click `Rules` on the left hamburger menu. Click on `Add rule` and select `New rule`.	
-Next select `Data protection rule`. Configure the rule as shown. This rule will mask the credit card data for collaborators.
+Next select `Data protection rule`. Configure the rule as shown. This rule will mask the credit card data for collaborators. Click on `Create`. Now, you are ready to access the application.
 
 ![create_rule](images/create_rule.png)
 
