@@ -120,7 +120,7 @@ Please follow the instructions [here](SECURITY_VERIFY_CONFIG.md) to configure `S
 
 For fully managed service, click [here](CPDaaS_Access.md) and follow the steps.
 
-For self managed software, click [here](CP4D_Access.md) and follow the steps.
+For self managed software, click [here](CPD_Access.md) and follow the steps.
 
 ### 5. Set up and configure chatbot application
 
