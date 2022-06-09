@@ -7,7 +7,7 @@ Click on `Provision as software`.
 
 ![provision](images/provision.png)
 
-Please ensure that options to install  DB2, Watson Knowledge Studio and Watson Query are selected. After configuring all the pre-requisite details, click `Install`.
+Please ensure that options to install  DB2, Watson Knowledge Studio, Watson Query and Watson Assistant are selected. After configuring all the pre-requisite details, click `Install`.
 
 ![install](images/install.png)
 
