@@ -398,3 +398,5 @@ Next select `Data protection rule`. Configure the rule as shown. This rule will 
 
 	
 ### 9. Access the application
+
+![Access the application](./images/Data-Gov-Mask-Data.gif)
