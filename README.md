@@ -85,7 +85,7 @@ In the code pattern, we will be using Cloud Pak for Data.
 
 ##### 2.1.1 For fully managed service, click [here](CPDaaS.md) and follow the steps.
 
-##### 2.1.2 For self managed software, click [here](CP4D.md) and follow the steps.
+##### 2.1.2 For self managed software, click [here](CPD.md) and follow the steps.
 
 ##### 2.1.3 Create a catalog in Watson Knowledge Studio for Insurance Portal Application
 
@@ -95,7 +95,7 @@ Click on `Create Catalog`.
 
 ![click_create_catalog](images/click_create_catalog.png)
 
-Enter a name for the catalog (say `InsClCatalog`). Enter a description. Select `Enforce data poliies`. Click `Create`.
+Enter a name for the catalog (say `InsClCatalog`). Enter a description. Select `Enforce data policies`. Click `Create`.
 
 ![create_catalog](images/create_catalog.png)
 
@@ -120,7 +120,7 @@ Please follow the instructions [here](SECURITY_VERIFY_CONFIG.md) to configure `S
 
 For fully managed service, click [here](CPDaaS_Access.md) and follow the steps.
 
-For self managed software, click [here](CP4D_Access.md) and follow the steps.
+For self managed software, click [here](CPD_Access.md) and follow the steps.
 
 ### 5. Set up and configure chatbot application
 
