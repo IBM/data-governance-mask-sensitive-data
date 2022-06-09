@@ -85,7 +85,7 @@ In the code pattern, we will be using Cloud Pak for Data.
 
 ##### 2.1.1 For fully managed service, click [here](CPDaaS.md) and follow the steps.
 
-##### 2.1.2 For self managed software, click [here](CP4D.md) and follow the steps.
+##### 2.1.2 For self managed software, click [here](CPD.md) and follow the steps.
 
 ##### 2.1.3 Create a catalog in Watson Knowledge Studio for Insurance Portal Application
 
