@@ -24,3 +24,7 @@ Click `Add` to add the user.
 
 ![add_users_complete](./images/add_users_complete.png)
 
+### 2. Provide Access to Watson Knowledge Catalog and Watson Query
+
+- Open the Watson Knowledge Catalog console. Open the new catalog `InsClCatalog`. Click on `Access` tab and provide collaborator access to the new user created.
+- Open the Watson Query console. Select `User management` in the dropdown list menu. Click on `Grant access` and provide collaborator access to the new user created.
