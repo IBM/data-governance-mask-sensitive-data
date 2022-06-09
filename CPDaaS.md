@@ -34,10 +34,11 @@ Search for `Watson Query` in the catalog. Click on `Watson Query` to create `Wat
 
 Select `Service Instances` in the left top hamburger menu. Note all the services have been created and are in `Active` state.
 
+![services_list](images/services_list.png)
+
+
 ##### 5.1 Note down Watson Query credentials
 Open the Watson Query console. Select `Connection details` in the dropdown menu. Note the `Host name`, `Port`, `User id` and `JDBC` string. This will be required for viewing the data on `Watson Knowledge Studio`.
-
-![services_list](images/services_list.png)
 
 #### 6. Create Watson Assistant
 
