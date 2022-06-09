@@ -1,11 +1,13 @@
 # Work in progress
 
-# Create a read-only view of data for AI applications with sensitive information masked 
+# Data Masking and Obfuscation for AI applications for Data Security & Privacy Conformance
 
-In any business there is lot of sensitive information collected like date of birth, credit card number, mobile number etc. This data is stored in databases. A data governance framework must be in place to enforce the privacy and allowed use of such information.
+Data Security & Privacy related laws and regulations have become more stringent and at the same time businesses are expected to open for ecosystem partners. This makes data governance very critical to avoid litigation, loss of competitive position and trust. 
 
-There are many scenarios where such sensitive information is needed by other business applications. Few examples are listed here:
-- In a customer support application where customer orders are being queried - the mobile number, credit card number or address must be partially masked with maybe last 4 characters displayed.
+Business transaction with sensitive information is exchanged within the enterprise, with customers, and ecosystem partners. Data such as name, location, contact details, date of birth, credit card number, financial details, not limited, needs to be handled with sensitivity. A data governance framework plays a critical role to enforce security and privacy at the same time be an enabler for business to achieve their strategy. 
+
+There are multiple business scenarios wherein sensitive data needs to be captured or retrieved. Describing few important ones: 
+- For customer support application, customer orders are being queried wherein customer mobile number, credit card number and location needs to be obscured or masked. 
 - A machine learning application needs to perform an analysis based on sensitive information like credit card number. In such cases, the machine learning application needs to be provided obfuscated data for analysis and model building.
 
 This code pattern demonstrates a methodology to provide a read-only view of data with senstive information masked for an application. 
