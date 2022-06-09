@@ -338,10 +338,6 @@ Select `Virtualized data`  in the dropdown menu. For the `CUSTOMER_ORDERS_VIEW` 
 
 ![wq_view_access](images/wq_view_access.png)
 
-#### 7.6 Connection credentials for Watson Query
-
-Select `Connection details` in the dropdown menu. Note the `Host name`, `Port`, `User id` and `JDBC` string. This will be required for viewing the data on `Watson Knowledge Studio`.
-
 ### 8. Configure Watson Knowledge Studio
 
 Login to `Cloud Pak for Data` with `Data Owner` credentials. Go to the Watson Query console.
