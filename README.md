@@ -55,14 +55,14 @@ Security Verify has been used to implement authentication for the insurance appl
 
 ## Steps
 1. [Clone the repository](#1-clone-the-repository)
-2. [Create IBM Cloud Services instances](#2-create-ibm-cloud-services)
+2. [Create IBM Cloud Services instances](#2-create-ibm-cloud-services-instances)
 3. [Configure Security Verify](#3-configure-security-verify)
 4. [Provide access for collaborators to Cloud Pak for Data](#4-provide-access-for-collaborators-to-cloud-pak-for-data)
 5. [Set up and configure chatbot application](#5-set-up-and-configure-chatbot-application)
 6. [Deploy Insurance Portal Application](#6-deploy-insurance-portal-application)
-7. [Configure Watson Query](#5-configure-watson-query)
-8. [Configure Watson Knowledge Studio](#6-configure-watson-knowledge-studio)
-9. [Access the Application](#7-access-the-application)
+7. [Configure Watson Query](#7-configure-watson-query)
+8. [Configure Watson Knowledge Studio](#8-configure-watson-knowledge-studio)
+9. [Access the Application](#9-access-the-application)
 
 
 ### 1. Clone the repository
