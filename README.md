@@ -181,7 +181,7 @@ Make a note of the `HOST`. It will be used in Cloud functions.
 
 #### 5.3 Create Watson Assistant chatbot
 <details>
-<summary>CPDaaS</summary>
+<summary>Cloud Pak for Data - Fully managed service</summary>
 
 Note that we will be using Watson Assistant V1. 
 - Login to IBM Cloud dashboard.
@@ -192,7 +192,7 @@ Note that we will be using Watson Assistant V1.
 </details>
 
 <details>
-    <summary>CP4D</summary>
+    <summary>Cloud Pak for Data - Self managed software</summary>
 </details>
 
 - Click on the Watson Service instance link on your cloud resources and click `Launch Watson Assistant`.
