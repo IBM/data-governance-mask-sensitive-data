@@ -179,21 +179,7 @@ Make a note of the `HOST`. It will be used in Cloud functions.
 - Under `REST API`, make a note of the link with heading `URL`. We will need to use this for chatbot webhook settings.
 
 
-#### 5.3 Create Watson Assistant chatbot
-<details>
-<summary>Cloud Pak for Data - Fully managed service</summary>
-
-Note that we will be using Watson Assistant V1. 
-- Login to IBM Cloud dashboard.
-- Click on `Catalog` option on the top menu and search for `Watson Assistant`
-- Click on the Watson Assistant tile that shows up.
-- Select `Trial` plan and check the license agreement after reading the terms. Click create. It will take a minute or two for the Watson Assistant instance to be provisioned on your IBM Cloud dashboard.
-
-</details>
-
-<details>
-    <summary>Cloud Pak for Data - Self managed software</summary>
-</details>
+#### 5.3 Configure Watson Assistant chatbot
 
 - Click on the Watson Service instance link on your cloud resources and click `Launch Watson Assistant`.
 - In the Watson Assistant home page, click `skills` option on the left menu options.
