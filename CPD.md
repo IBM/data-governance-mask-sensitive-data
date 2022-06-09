@@ -9,3 +9,5 @@ Click on `Provision as software`.
 Please ensure that options to install  DB2, Watson Knowledge Studio and Watson Query are selected. After configuring all the pre-requisite details, click `Install`.
 
 ![install](images/install.png)
+
+For more details on the installation process refer this [link](https://www.ibm.com/docs/en/cloud-paks/cp-data/4.0?topic=installing).
