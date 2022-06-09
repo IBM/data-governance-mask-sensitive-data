@@ -1,4 +1,4 @@
-### Create DB2, Watson Knowledge Studio and Watson Query on the fully managed Cloud Pak for Data service(CPDaaS) on IBM Cloud 
+### Create DB2, Watson Knowledge Studio, Watson Query and Watson Assitant on the fully managed Cloud Pak for Data service(CPDaaS) on IBM Cloud 
 
 This code pattern requires two IBM Cloud accounts. 
 - The first account will be used to host the DB2 instance, Watson Knowledge Studio, Watson Query service and the Insurance Portal application.
@@ -39,7 +39,11 @@ Open the Watson Query console. Select `Connection details` in the dropdown menu.
 
 ![services_list](images/services_list.png)
 
-#### 6. Create service credentials for DB2
+#### 6. Create Watson Assistant
+
+Search for `Watson Assistant` in the catalog. Click on `Watson Assistant` to create `Watson Assistant` instance. Select `Trial` plan and check the license agreement after reading the terms. Click create. It will take a minute or two for the Watson Assistant instance to be provisioned on your IBM Cloud dashboard.
+
+#### 7. Create service credentials for DB2
 
 In the services list, click on the D2 service instance and select `Manage on IBM Cloud` on the menu. 
 
