@@ -397,4 +397,6 @@ Next select `Data protection rule`. Configure the rule as shown. This rule will 
 	
 ### 9. Access the application
 
+>Note: Please specify a valid email on the `Registration` page. `Security Verify` will send the initial password to the specified email address after registration. 
+	
 ![Access the application](./images/Data-Gov-Mask-Data.gif)
