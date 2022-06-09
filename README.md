@@ -197,7 +197,7 @@ Note that we will be using Watson Assistant V1.
 
 - Click on the Watson Service instance link on your cloud resources and click `Launch Watson Assistant`.
 - In the Watson Assistant home page, click `skills` option on the left menu options.
-> If you do not see skills icon, then the Watson assistant view could of of new experience UI. For this code pattern, we will use the classic view and hence switch to classic view by navigating to `manage` (user icon on top right corner) and clicking `Switch to classic experience`.
+> If you do not see skills icon, then the Watson assistant view could be for the new experience UI. For this code pattern, we will use the classic view and hence switch to classic view by navigating to `manage` (user icon on top right corner) and clicking `Switch to classic experience`.
 - Click `Create skill` button, then click `Dialog skill` tile. Click `Next`.
 - Select `Upload skill` tab. Drag and drop or browse to select the file in <cloned repo>/sources/chatbot/chatbot resources/ecomm-skill-dialog.json. Click `Upload`.
 - On the left navigation links click `Options`->`Webhooks` on the left hand navigation.
