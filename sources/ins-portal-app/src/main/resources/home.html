@@ -51,22 +51,5 @@
 					the virtual assistant on the right.</i></b>
 		</p>
 	</div>
-	<script>
-		window.watsonAssistantChatOptions = {
-			integrationID : "fb5493d9-8afd-4b48-a0c9-f91cee93cbed", // The ID of this integration.
-			region : "eu-gb", // The region your integration is hosted in.
-			serviceInstanceID : "b3d1dcaf-f892-472f-bd19-fad434967674", // The ID of your service instance.
-			onLoad : function(instance) {
-				instance.render();
-			}
-		};
-		setTimeout(function() {
-			const t = document.createElement('script');
-			t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/versions/"
-					+ (window.watsonAssistantChatOptions.clientVersion || 'latest')
-					+ "/WatsonAssistantChatEntry.js"
-			document.head.appendChild(t);
-		});
-	</script>
 </body>
 </html>
