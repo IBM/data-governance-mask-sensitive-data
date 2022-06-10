@@ -260,6 +260,30 @@ apiClientId=
 apiClientSecret=
 ```
 
+**6.1.4 Embed chatbot on the home page of the Insurance Portal Application**
+
+In the cloned repo folder - go to `src/main/resources`. Open `home.html`. 
+Embed the chatbot script element before the closing`body` tag.
+>Note: Replace the `integration ID`, `region` and `instance ID` of the Watson Assistant deployed in previous section. 
+```
+<script>
+		window.watsonAssistantChatOptions = {
+			integrationID : "fxxxxeb", // The ID of this integration.
+			region : "eu-gb", // The region your integration is hosted in.
+			serviceInstanceID : "bxxxxx4", // The ID of your service instance.
+			onLoad : function(instance) {
+				instance.render();
+			}
+		};
+		setTimeout(function() {
+			const t = document.createElement('script');
+			t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/versions/"
+					+ (window.watsonAssistantChatOptions.clientVersion || 'latest')
+					+ "/WatsonAssistantChatEntry.js"
+			document.head.appendChild(t);
+		});
+</script>
+```
 #### 6.2 Deploy Insurance Portal Service
 On the terminal window, got to the repository folder that we cloned earlier and change directory to `/sources/ins-portal-app`. 
 
@@ -387,14 +411,39 @@ Enter details as shown and click `Create`.
 	
 This will be saved as `Draft`. Click `Publish` to publish the business term.
 
-#### 8.4 Create a data protection rule
+#### 8.4 Assign data class to the columns
+
+Open the `Asset` tab for `ORDERS` table. Assign the data class `CC_NUM_CLASS` created earlier to the credit card information columns.
+
+![orders_assign](images/orders_assign.png)
+	
+Open the `Asset` tab for `CUSTOMER` table. Verify the data class assignment for mobile and email columns.
+
+![customer_assign](images/customer_assign.png)	
+	
+#### 8.5 Create a data protection rule
 
 Click `Rules` on the left hamburger menu. Click on `Add rule` and select `New rule`.	
-Next select `Data protection rule`. Configure the rule as shown. This rule will mask the credit card data for collaborators. Click on `Create`. Now, you are ready to access the application.
+Next select `Data protection rule`. Configure the rule as shown. This rule will mask the credit card data for collaborators. Click on `Create`. 
 
 ![create_rule](images/create_rule.png)
 
+Similarly, you can add rules for masking mobile, email and credit card expiry information.
+
+![rules](images/rules.png)	
+
+#### 8.5 View of data for `Data Owner` and `Data Collaborator`
+
+Login to Watson Query with `Data Owner` credentials. `Preview` the `CUSTOMER_ORDERS_VIEW.
+
+![owner_view](images/owner_view.png)	
 	
+Login to Watson Query with `Data Collaborator` credentials. `Preview` the `CUSTOMER_ORDERS_VIEW.
+
+![owner_view](images/collab_view.png)
+
+In the next section, let us access the application and see the data privacy policies enforced for the chatbot.
+
 ### 9. Access the application
 
 >Note: Please specify a valid email on the `Registration` page. `Security Verify` will send the initial password to the specified email address after registration. 
