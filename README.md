@@ -194,11 +194,11 @@ https://eu-gb.functions.appdomain.cloud/api/v1/web/.../default/Make%20DB%20Calls
 - Click `Assistants` icon on the top left corner of Watson Assistant screen
 - Click `Create assistant`.
 - Give a name for your assistant, optionally enter a description and click `Create assistant`.
-- On the just created Assistant screen, click the `Preview` button. Make a note of `integrationID` and `serviceInstanceID` from the link provided under the section `Share this link`.
+- On the just created Assistant screen, click the `Preview` button. Make a note of `integrationID`, `serviceInstanceID` and `region`from the link provided under the section `Share this link`.
 - Close the window using the `x` button placed just below the user icon on the top right corner.
 - In Assistants page, under `Integrations` section (bottom right corner of the screen), click `Integrate web chat`.
 - Click on `Create` button.
-- Click on `Embed` tab. Copy and save the `script` in a text file. In this script, you will need to update `integrationID` and `serviceInstanceID` as noted from Preview link earlier.
+- Click on `Embed` tab. Copy and save the `script` in a text file. In this script, you will need to update `integrationID`, `serviceInstanceID` and `region` as noted from Preview link earlier.
 - This code snippet will be used in the Insurnace Portal UI.
 
 ### 6. Deploy Insurance Portal Application
