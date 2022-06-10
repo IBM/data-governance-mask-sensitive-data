@@ -434,11 +434,11 @@ Similarly, you can add rules for masking mobile, email and credit card expiry in
 
 #### 8.5 View of data for `Data Owner` and `Data Collaborator`
 
-Login to Watson Query with `Data Owner` credentials. `Preview` the `CUSTOMER_ORDERS_VIEW.
+Login to Watson Query with `Data Owner` credentials. `Preview` the `CUSTOMER_ORDERS_VIEW`.
 
 ![owner_view](images/owner_view.png)	
 	
-Login to Watson Query with `Data Collaborator` credentials. `Preview` the `CUSTOMER_ORDERS_VIEW.
+Login to Watson Query with `Data Collaborator` credentials. `Preview` the `CUSTOMER_ORDERS_VIEW`.
 
 ![owner_view](images/collab_view.png)
 
