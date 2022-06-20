@@ -220,7 +220,7 @@ public class InsuranceAppEndpoint {
 			urlParameters.add(new BasicNameValuePair("code", code));
 			urlParameters.add(new BasicNameValuePair("grant_type", "authorization_code"));
 			urlParameters.add(new BasicNameValuePair("redirect_uri",
-					"http://ins-portal-app-governance.cp-india-f2c6cdc6801be85fd188b09d006f13e3-0000.us-south.containers.appdomain.cloud/insportal/app/oidcclient/redirect/home"));
+					"http://"+ingressSubDomain+"insportal/app/oidcclient/redirect/home"));
 			post.setEntity(new UrlEncodedFormEntity(urlParameters));
 			String result = "";
 			try (CloseableHttpClient httpClient = HttpClients.createDefault();
