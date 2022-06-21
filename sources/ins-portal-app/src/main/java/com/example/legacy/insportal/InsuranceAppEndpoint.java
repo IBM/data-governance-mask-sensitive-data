@@ -46,7 +46,7 @@ public class InsuranceAppEndpoint {
 
 	private static Properties props = new Properties();
 	private static Logger logger = Logger.getLogger(InsuranceAppEndpoint.class.getName());
-	private static String ingressSubDomain = "ins-portal-app-governance.{{ingress-sub-domain}}/";
+	private static String ingressSubDomain = "ins-portal-app-governance.{{ingress-sub-domain}}";
 
 	static {
 		try {
@@ -220,7 +220,7 @@ public class InsuranceAppEndpoint {
 			urlParameters.add(new BasicNameValuePair("code", code));
 			urlParameters.add(new BasicNameValuePair("grant_type", "authorization_code"));
 			urlParameters.add(new BasicNameValuePair("redirect_uri",
-					"http://"+ingressSubDomain+"insportal/app/oidcclient/redirect/home"));
+					"http://"+ingressSubDomain+"/insportal/app/oidcclient/redirect/home"));
 			post.setEntity(new UrlEncodedFormEntity(urlParameters));
 			String result = "";
 			try (CloseableHttpClient httpClient = HttpClients.createDefault();
