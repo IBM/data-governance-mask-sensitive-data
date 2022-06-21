@@ -246,7 +246,7 @@ public class InsuranceAppEndpoint {
 				username = userInfoObj.getString("preferred_username");
 			}
 
-			NewCookie cookie = new NewCookie("verify_token", accessToken, "/", "ins-portal-app-governance."+ingressSubDomain,
+			NewCookie cookie = new NewCookie("verify_token", accessToken, "/", ingressSubDomain,
 					"Security Verify Access Token", 10000, false, true);
 			String eshopHTML = FileUtils.readFileToString(
 					new File(InsuranceAppEndpoint.class.getClassLoader().getResource("eshop.html").getPath()),
