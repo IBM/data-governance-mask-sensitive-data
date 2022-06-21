@@ -46,7 +46,7 @@ public class InsuranceAppEndpoint {
 
 	private static Properties props = new Properties();
 	private static Logger logger = Logger.getLogger(InsuranceAppEndpoint.class.getName());
-	private static String ingressSubDomain = "ins-portal-app-governance.{{ingress-sub-domain}}";
+	private static String ingressSubDomain = "ins-portal-app-governance.{{ingress-sub-domain}}/";
 
 	static {
 		try {
