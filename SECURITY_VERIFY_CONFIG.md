@@ -27,9 +27,9 @@ In the far right information pane, note down the IBM Security Verify endpoint.
 Then, note down the following endpoints: **authorization_endpoint, token_endpoint and introspection_endpoint**. These will be needed to configure our `Insurance Portal` application to integrate with Security Verify.
 
 **Add an API Client**
-- Click on the `API Access` tab on application settings
-- Click on `Add API Client` button
-- Enter a name and click on `Save`
+- Click on the `API Access` tab on application settings.
+- Click on `Add API Client` button.
+- Enter a name. Scroll down to `Select the APIs to which you want to grant access:`. Toggle the `Select all` button to `On`, and click on `Save`.
 - Again click `Save` on the parent settings page. The credentials will now be generated.
 
 ![Save API Client](./images/save-api-client.png)
