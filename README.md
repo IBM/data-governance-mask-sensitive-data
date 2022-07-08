@@ -409,7 +409,7 @@ This will be saved as `Draft`. Click `Publish` to publish the data class.
 
 ![publish_dclass](images/publish_dclass.png)
 	
-#### 8.3 Create a business term
+#### 8.4 Create a business term
 
 Click `Business terms` on the left hamburger menu. Click on `Add business term` and select `New business term`.	
 
@@ -419,7 +419,7 @@ Enter details as shown and click `Create`.
 	
 This will be saved as `Draft`. Click `Publish` to publish the business term.
 
-#### 8.4 Assign data class to the columns
+#### 8.5 Assign data class to the columns
 
 Open the `Asset` tab for `ORDERS` table. Assign the data class `CC_NUM_CLASS` created earlier to the credit card information columns.
 
@@ -429,7 +429,7 @@ Open the `Asset` tab for `CUSTOMER` table. Verify the data class assignment for 
 
 ![customer_assign](images/customer_assign.png)	
 	
-#### 8.5 Create a data protection rule
+#### 8.6 Create a data protection rule
 
 Click `Rules` on the left hamburger menu. Click on `Add rule` and select `New rule`.	
 Next select `Data protection rule`. Configure the rule as shown. This rule will mask the credit card data for collaborators. Click on `Create`. 
@@ -440,7 +440,7 @@ Similarly, you can add rules for masking mobile, email and credit card expiry in
 
 ![rules](images/rules.png)	
 
-#### 8.5 View of data for `Data Owner` and `Data Collaborator`
+#### 8.7 View of data for `Data Owner` and `Data Collaborator`
 
 Login to Watson Query with `Data Owner` credentials. `Preview` the `CUSTOMER_ORDERS_VIEW`.
 
