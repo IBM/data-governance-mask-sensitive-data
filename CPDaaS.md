@@ -42,11 +42,11 @@ Open the Watson Query console. Select `Connection details` in the dropdown menu.
 
 #### 6. Create Watson Assistant
 
-Search for `Watson Assistant` in the catalog. Click on `Watson Assistant` to create `Watson Assistant` instance. Select `Trial` plan and check the license agreement after reading the terms. Click create. It will take a minute or two for the Watson Assistant instance to be provisioned on your IBM Cloud dashboard.
+Login to the `Data Collaborator` IBM Cloud account. Search for `Watson Assistant` in the catalog. Click on `Watson Assistant` to create `Watson Assistant` instance. Select `Trial` plan and check the license agreement after reading the terms. Click create. It will take a minute or two for the Watson Assistant instance to be provisioned on your IBM Cloud dashboard.
 
 #### 7. Create service credentials for DB2
 
-In the services list, click on the D2 service instance and select `Manage on IBM Cloud` on the menu. 
+Go to the `Data Owner` IBM Cloud account. In the services list, click on the D2 service instance and select `Manage on IBM Cloud` on the menu. 
 
 ![manage_in_cloud](images/manage_in_cloud.png)
 
